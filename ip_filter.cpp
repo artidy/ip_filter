@@ -46,6 +46,14 @@ bool compare_func_1(std::vector<int> a) {
     return a[0] == 1;
 }
 
+bool compare_func_2(std::vector<int> a) {
+    return a[0] == 46 && a[1] == 70;
+}
+
+bool compare_func_3(std::vector<int> a) {
+    return a[0] == 46 || a[1] == 46 || a[2] == 46 || a[3] == 46;
+}
+
 void printToConsole(std::string header, std::vector<std::vector<int> > ip_pool) {
 
     std::cout << header << std::endl;
@@ -94,60 +102,19 @@ int main(int argc, char const *argv[])
 
         // First byte equals 1
         std::vector<std::vector<int> > eq1;
-        std::copy_if(ip_pool.begin(), ip_pool.end(), eq1.begin(), compare_func_1);
+        std::copy_if(ip_pool.begin(), ip_pool.end(), std::back_inserter(eq1), compare_func_1);
         printToConsole("2) Sort ip with 1 in first byte", eq1);
 
-        // 1.231.69.33
-        // 1.87.203.225
-        // 1.70.44.170
-        // 1.29.168.152
-        // 1.1.234.8
+        // First byte equals 46 second 70
+        std::vector<std::vector<int> > eq2;
+        std::copy_if(ip_pool.begin(), ip_pool.end(), std::back_inserter(eq2), compare_func_2);
+        printToConsole("3) Sort ip with 46 in first byte and 70 in second", eq2);
 
-        // TODO filter by first and second bytes and output
-        // ip = filter(46, 70)
+        // First byte equals 46 second 70
+        std::vector<std::vector<int> > eq3;
+        std::copy_if(ip_pool.begin(), ip_pool.end(), std::back_inserter(eq3), compare_func_3);
+        printToConsole("4) Sort ip with 46 any byte", eq3);
 
-        // 46.70.225.39
-        // 46.70.147.26
-        // 46.70.113.73
-        // 46.70.29.76
-
-        // TODO filter by any byte and output
-        // ip = filter_any(46)
-
-        // 186.204.34.46
-        // 186.46.222.194
-        // 185.46.87.231
-        // 185.46.86.132
-        // 185.46.86.131
-        // 185.46.86.131
-        // 185.46.86.22
-        // 185.46.85.204
-        // 185.46.85.78
-        // 68.46.218.208
-        // 46.251.197.23
-        // 46.223.254.56
-        // 46.223.254.56
-        // 46.182.19.219
-        // 46.161.63.66
-        // 46.161.61.51
-        // 46.161.60.92
-        // 46.161.60.35
-        // 46.161.58.202
-        // 46.161.56.241
-        // 46.161.56.203
-        // 46.161.56.174
-        // 46.161.56.106
-        // 46.161.56.106
-        // 46.101.163.119
-        // 46.101.127.145
-        // 46.70.225.39
-        // 46.70.147.26
-        // 46.70.113.73
-        // 46.70.29.76
-        // 46.55.46.98
-        // 46.49.43.85
-        // 39.46.86.85
-        // 5.189.203.46
     }
     catch(const std::exception &e)
     {
