@@ -11,8 +11,8 @@ set(SOURCES
 add_executable(ip_filter ${HEADERS} ${SOURCES})
 
 set_target_properties(ip_filter PROPERTIES
-    CXX_STANDART 14
-    CXX_STANDART_REQUIRED ON
+    CXX_STANDARD 14
+    CXX_STANDARD_REQUIRED ON
 )
 
 set(CPACK_GENERATOR DEB)
